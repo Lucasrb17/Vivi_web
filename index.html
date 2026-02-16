@@ -823,7 +823,7 @@
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             <!-- Project 1 - Novias -->
             <div class="reveal group cursor-pointer">
-                <div class="img-reveal overflow-hidden relative img-carousel" style="aspect-ratio: 3/4;" data-carousel>
+                <div class="overflow-hidden relative img-carousel h-[500px] md:h-[600px]" data-carousel>
                     <div class="carousel-slides h-full">
                         <img src="img/Card_Novia_1.jpeg" alt="Maquillaje de novias" class="w-full h-full object-cover"
                             loading="lazy">
@@ -843,7 +843,7 @@
 
             <!-- Project 2 - Quinceañeras -->
             <div class="reveal group cursor-pointer md:mt-20">
-                <div class="img-reveal overflow-hidden relative img-carousel" style="aspect-ratio: 3/4;" data-carousel>
+                <div class="overflow-hidden relative img-carousel h-[500px] md:h-[600px]" data-carousel>
                     <div class="carousel-slides h-full">
                         <img src="img/Card_Quinceanera_1.webp" alt="Maquillaje de quinceañeras"
                             class="w-full h-full object-cover" loading="lazy">
@@ -871,7 +871,7 @@
 
             <!-- Project 3 - Moda -->
             <div class="reveal group cursor-pointer">
-                <div class="img-reveal overflow-hidden relative img-carousel" style="aspect-ratio: 3/4;" data-carousel>
+                <div class="overflow-hidden relative img-carousel h-[500px] md:h-[600px]" data-carousel>
                     <div class="carousel-slides h-full">
                         <img src="img/Card_Moda_1.webp" alt="Editorial de moda" class="w-full h-full object-cover"
                             loading="lazy">
@@ -1046,84 +1046,7 @@
                 </div>
             </div>
 
-            <!-- Divider -->
-            <div class="w-20 h-px bg-black/10 mx-auto my-24"></div>
 
-            <!-- Review Submission Form -->
-            <div class="max-w-2xl mx-auto reveal">
-                <h3 class="display text-4xl md:text-5xl italic mb-4 text-center tracking-tight"
-                    data-i18n="reviews-form-title">Dejá tu experiencia</h3>
-                <p class="text-center text-sm font-light text-gray-400 mb-16" data-i18n="reviews-form-desc">Tu opinión
-                    nos ayuda a seguir mejorando</p>
-
-                <!-- Success state -->
-                <div id="reviewFormSuccess"
-                    class="flex flex-col items-center justify-center text-center py-10 bg-off-white border border-black/5 rounded-2xl p-8">
-                    <p class="font-serif text-4xl italic mb-6 text-green-700" data-i18n="reviews-success">¡Gracias por
-                        tu opinión!</p>
-                    <p class="text-sm font-light text-gray-500 max-w-md" data-i18n="reviews-success-desc">Tu reseña será
-                        revisada y publicada próximamente.</p>
-                </div>
-
-                <form id="reviewForm" method="POST" action="https://romerobelvederelucas.getform.com/97xw9"
-                    class="space-y-10">
-                    <!-- Honeypot anti-spam -->
-                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-                    <input type="hidden" name="_subject" value="Nueva reseña del sitio web" />
-
-                    <!-- Star Rating -->
-                    <div class="text-center">
-                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-4 block"
-                            data-i18n="reviews-rating-label">Tu calificación *</label>
-                        <div class="star-rating justify-center" id="starRating">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <input type="hidden" name="stars" id="starsInput" value="" />
-                    </div>
-
-                    <!-- Name -->
-                    <div class="flex flex-col">
-                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-2" for="reviewName"
-                            data-i18n="reviews-name-label">Tu nombre *</label>
-                        <input type="text" name="reviewName" id="reviewName" placeholder="Ej. María L." required
-                            maxlength="50">
-                    </div>
-
-                    <!-- Review Text -->
-                    <div class="flex flex-col">
-                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-2" for="reviewText"
-                            data-i18n="reviews-text-label">Tu experiencia *</label>
-                        <textarea name="reviewText" id="reviewText" rows="3" maxlength="500"
-                            placeholder="Contános cómo fue tu experiencia..." data-i18n-ph="reviews-ph"
-                            required></textarea>
-                        <div class="char-counter" id="charCounter">0 / 500</div>
-                    </div>
-
-                    <!-- Math CAPTCHA -->
-                    <div class="flex flex-col items-center">
-                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-4"
-                            data-i18n="reviews-captcha-label">Verificación anti-spam *</label>
-                        <div class="captcha-box">
-                            <span id="captchaQuestion"></span>
-                            <span>=</span>
-                            <input type="number" id="captchaAnswer" required autocomplete="off">
-                        </div>
-                    </div>
-
-                    <!-- Submit -->
-                    <div class="text-center pt-4">
-                        <button type="submit" id="reviewSubmitBtn" class="btn-luxury" data-i18n="reviews-submit">Enviar
-                            Reseña</button>
-                        <p id="reviewStatusMsg"
-                            class="text-[10px] uppercase tracking-[0.3em] mt-6 font-bold text-gray-400"></p>
-                    </div>
-                </form>
-            </div>
-        </div>
     </section>
 
     <!-- CONTACTO -->
@@ -1511,102 +1434,7 @@
             track.scrollBy({ left: direction * (cardWidth + 32), behavior: 'smooth' });
         }
 
-        // Star Rating interaction
-        const starContainer = document.getElementById('starRating');
-        const starsInput = document.getElementById('starsInput');
-        let selectedStars = 0;
 
-        starContainer.querySelectorAll('.star').forEach(star => {
-            star.addEventListener('mouseenter', function () {
-                const val = parseInt(this.dataset.value);
-                starContainer.querySelectorAll('.star').forEach((s, i) => {
-                    s.classList.toggle('hovered', i < val);
-                });
-            });
-            star.addEventListener('click', function () {
-                selectedStars = parseInt(this.dataset.value);
-                starsInput.value = selectedStars;
-                starContainer.querySelectorAll('.star').forEach((s, i) => {
-                    s.classList.toggle('active', i < selectedStars);
-                });
-            });
-        });
-
-        starContainer.addEventListener('mouseleave', () => {
-            starContainer.querySelectorAll('.star').forEach((s, i) => {
-                s.classList.remove('hovered');
-            });
-        });
-
-        // Character counter
-        const reviewText = document.getElementById('reviewText');
-        const charCounter = document.getElementById('charCounter');
-        reviewText.addEventListener('input', function () {
-            const len = this.value.length;
-            charCounter.textContent = `${len} / 500`;
-            charCounter.classList.toggle('warning', len >= 450);
-        });
-
-        // Math CAPTCHA
-        let captchaA, captchaB;
-        function generateCaptcha() {
-            captchaA = Math.floor(Math.random() * 9) + 1;
-            captchaB = Math.floor(Math.random() * 9) + 1;
-            document.getElementById('captchaQuestion').textContent = `${captchaA} + ${captchaB}`;
-        }
-        generateCaptcha();
-
-        // Review form submission
-        const reviewForm = document.getElementById('reviewForm');
-        reviewForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const statusMsg = document.getElementById('reviewStatusMsg');
-            const submitBtn = document.getElementById('reviewSubmitBtn');
-            const originalText = submitBtn.textContent;
-
-            // Validate stars
-            if (!selectedStars) {
-                statusMsg.textContent = translations[currentLang]['reviews-stars-error'];
-                statusMsg.style.color = '#ef4444';
-                return;
-            }
-
-            // Validate CAPTCHA
-            const userAnswer = parseInt(document.getElementById('captchaAnswer').value);
-            if (userAnswer !== captchaA + captchaB) {
-                statusMsg.textContent = translations[currentLang]['reviews-captcha-error'];
-                statusMsg.style.color = '#ef4444';
-                generateCaptcha();
-                document.getElementById('captchaAnswer').value = '';
-                return;
-            }
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = translations[currentLang]['status-gen'];
-
-            try {
-                const response = await fetch(reviewForm.action, {
-                    method: 'POST',
-                    body: new FormData(reviewForm),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    reviewForm.style.display = 'none';
-                    document.getElementById('reviewFormSuccess').classList.add('active');
-                } else {
-                    statusMsg.textContent = translations[currentLang]['reviews-error'];
-                    statusMsg.style.color = '#ef4444';
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
-                }
-            } catch (error) {
-                statusMsg.textContent = translations[currentLang]['reviews-error'];
-                statusMsg.style.color = '#ef4444';
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-            }
-        });
     </script>
 
 </body>
