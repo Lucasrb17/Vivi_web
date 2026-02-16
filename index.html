@@ -435,9 +435,200 @@
             color: var(--accent-color);
         }
 
+        /* Image Carousel */
+        .img-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .img-carousel .carousel-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .img-carousel .carousel-slides img {
+            min-width: 100%;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .img-carousel .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.85);
+            color: #111;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s, background 0.3s;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-carousel:hover .carousel-arrow {
+            opacity: 1;
+        }
+
+        .img-carousel .carousel-arrow:hover {
+            background: #fff;
+        }
+
+        .img-carousel .carousel-arrow.prev {
+            left: 12px;
+        }
+
+        .img-carousel .carousel-arrow.next {
+            right: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .img-carousel .carousel-arrow {
+                opacity: 1;
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .img-carousel .carousel-arrow.prev {
+                left: 8px;
+            }
+
+            .img-carousel .carousel-arrow.next {
+                right: 8px;
+            }
+        }
+
         /* Form validation */
         .field-valid {
             border-bottom-color: #22c55e !important;
+        }
+
+        /* Reviews Section */
+        .star-rating {
+            display: flex;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .star-rating .star {
+            font-size: 2rem;
+            color: #d1d5db;
+            transition: color 0.2s, transform 0.2s;
+            user-select: none;
+        }
+
+        .star-rating .star:hover,
+        .star-rating .star.active {
+            color: #F59E0B;
+            transform: scale(1.15);
+        }
+
+        .star-rating .star.hovered {
+            color: #FBBF24;
+        }
+
+        .star-display {
+            color: #F59E0B;
+            letter-spacing: 2px;
+        }
+
+        .reviews-track {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding: 1rem 0;
+        }
+
+        .reviews-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .review-card {
+            min-width: 340px;
+            max-width: 400px;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+
+        .reviews-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .reviews-nav button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .reviews-nav button:hover {
+            background: var(--text-main);
+            color: white;
+            border-color: var(--text-main);
+        }
+
+        .char-counter {
+            font-size: 0.7rem;
+            text-align: right;
+            margin-top: 6px;
+            opacity: 0.4;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .char-counter.warning {
+            color: #ef4444;
+            opacity: 1;
+        }
+
+        .captcha-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .captcha-box input {
+            max-width: 80px;
+            text-align: center;
+            font-size: 1.1rem !important;
+            padding: 0.8rem 0 !important;
+        }
+
+        #reviewFormSuccess {
+            display: none;
+        }
+
+        #reviewFormSuccess.active {
+            display: flex;
+            animation: fadeIn 1s ease forwards;
         }
     </style>
 </head>
@@ -632,13 +823,17 @@
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             <!-- Project 1 - Novias -->
             <div class="reveal group cursor-pointer">
-                <div class="img-reveal overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800"
-                        alt="Maquillaje de novias"
-                        class="w-full aspect-[3/4] object-cover transition-transform duration-1000 group-hover:scale-105"
-                        loading="lazy">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500">
+                <div class="img-reveal overflow-hidden relative img-carousel" data-carousel>
+                    <div class="carousel-slides">
+                        <img src="img/Card_Novia_1.jpeg" alt="Maquillaje de novias"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Novia_2.webp" alt="Maquillaje de novias 2"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_novia_3.webp" alt="Maquillaje de novias 3"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
                     </div>
+                    <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
+                    <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
                 </div>
                 <div class="mt-8 flex justify-between items-end border-b border-black/10 pb-4">
                     <h3 class="font-serif text-3xl md:text-4xl" data-i18n="proj-1-title">Novias</h3>
@@ -648,13 +843,25 @@
 
             <!-- Project 2 - Quinceañeras -->
             <div class="reveal group cursor-pointer md:mt-20">
-                <div class="img-reveal overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1583001809887-7c81309d6df2?q=80&w=800"
-                        alt="Maquillaje de quinceañeras"
-                        class="w-full aspect-[3/4] object-cover transition-transform duration-1000 group-hover:scale-105"
-                        loading="lazy">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500">
+                <div class="img-reveal overflow-hidden relative img-carousel" data-carousel>
+                    <div class="carousel-slides">
+                        <img src="img/Card_Quinceañera_1.webp" alt="Maquillaje de quinceañeras"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Quinceañera_2.webp" alt="Quinceañera 2"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Quinceañera_3.webp" alt="Quinceañera 3"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Quinceañera_4.webp" alt="Quinceañera 4"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Quinceañera_5.webp" alt="Quinceañera 5"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Quinceañera_6.webp" alt="Quinceañera 6"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
+                        <img src="img/Card_Quinceañera_7.webp" alt="Quinceañera 7"
+                            class="w-full aspect-[3/4] object-cover" loading="lazy">
                     </div>
+                    <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
+                    <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
                 </div>
                 <div class="mt-8 flex justify-between items-end border-b border-black/10 pb-4">
                     <h3 class="font-serif text-3xl md:text-4xl" data-i18n="proj-2-title">Quinceañeras</h3>
@@ -664,13 +871,15 @@
 
             <!-- Project 3 - Moda -->
             <div class="reveal group cursor-pointer">
-                <div class="img-reveal overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=800"
-                        alt="Editorial de moda"
-                        class="w-full aspect-[3/4] object-cover transition-transform duration-1000 group-hover:scale-105"
-                        loading="lazy">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500">
+                <div class="img-reveal overflow-hidden relative img-carousel" data-carousel>
+                    <div class="carousel-slides">
+                        <img src="img/Card_Moda_1.webp" alt="Editorial de moda" class="w-full aspect-[3/4] object-cover"
+                            loading="lazy">
+                        <img src="img/Card_Moda_2.webp" alt="Moda 2" class="w-full aspect-[3/4] object-cover"
+                            loading="lazy">
                     </div>
+                    <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
+                    <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
                 </div>
                 <div class="mt-8 flex justify-between items-end border-b border-black/10 pb-4">
                     <h3 class="font-serif text-3xl md:text-4xl" data-i18n="proj-3-title">Moda</h3>
@@ -683,10 +892,9 @@
 
     <section id="services" class="py-32 px-6 bg-white">
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Card 1 -->
+            <!-- Card 1 - Maquillaje (single image) -->
             <div class="reveal relative group overflow-hidden h-[500px] md:h-[600px] cursor-none">
-                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=600"
-                    alt="Maquillaje profesional"
+                <img src="img/Card_Maquillaje.webp" alt="Maquillaje profesional"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                 <div class="absolute bottom-8 left-8 text-white">
@@ -694,10 +902,9 @@
                         data-i18n="serv-vis-1">Maquillaje</p>
                 </div>
             </div>
-            <!-- Card 2 -->
+            <!-- Card 2 - Peinado (single image) -->
             <div class="reveal relative group overflow-hidden h-[500px] md:h-[600px] cursor-none">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600"
-                    alt="Peinado profesional"
+                <img src="img/Card_peinado.webp" alt="Peinado profesional"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
                 <div class="absolute bottom-8 left-8 text-white">
@@ -705,12 +912,23 @@
                         data-i18n="serv-vis-2">Peinado</p>
                 </div>
             </div>
-            <!-- Card 3 -->
+            <!-- Card 3 - Backstage (carousel) -->
             <div class="reveal relative group overflow-hidden h-[500px] md:h-[600px] cursor-none">
-                <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=600" alt="Backstage"
-                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
-                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-                <div class="absolute bottom-8 left-8 text-white">
+                <div class="img-carousel absolute inset-0" data-carousel>
+                    <div class="carousel-slides" style="height:100%">
+                        <img src="img/Card_Back_2.webp" alt="Backstage 1" class="w-full h-full object-cover"
+                            style="min-width:100%;min-height:100%" loading="lazy">
+                        <img src="img/Card_Back_3.webp" alt="Backstage 2" class="w-full h-full object-cover"
+                            style="min-width:100%;min-height:100%" loading="lazy">
+                        <img src="img/Card_Back_4.webp" alt="Backstage 3" class="w-full h-full object-cover"
+                            style="min-width:100%;min-height:100%" loading="lazy">
+                    </div>
+                    <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
+                    <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
+                </div>
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors pointer-events-none"
+                    style="z-index:5"></div>
+                <div class="absolute bottom-8 left-8 text-white" style="z-index:6">
                     <p class="text-xs uppercase tracking-[0.3em] font-bold border-l-2 border-white pl-4 mb-2"
                         data-i18n="serv-vis-3">Back</p>
                 </div>
@@ -799,6 +1017,112 @@
                     title="Solicitar reserva para Maquillaje y Peinado con Prueba"
                     class="btn-luxury bg-white text-black border-white hover:bg-transparent hover:text-white"
                     data-i18n="serv-reserva">Solicitar Reserva</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS / TESTIMONIOS -->
+    <section id="reviews" class="py-32 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-20 reveal">
+                <p class="text-[10px] uppercase tracking-[0.4em] mb-6 font-bold text-accent-clay"
+                    data-i18n="reviews-tag">Testimonios</p>
+                <h2 class="display text-[5rem] md:text-[10rem] italic tracking-tighter leading-[0.8]"
+                    data-i18n="reviews-title">Reviews.</h2>
+            </div>
+
+            <!-- Approved Reviews Carousel -->
+            <div class="relative reveal">
+                <div class="reviews-track" id="reviewsTrack">
+                    <!-- Reviews loaded dynamically from reviews.json -->
+                    <div class="review-card p-10 bg-off-white border border-black/5 text-center">
+                        <p class="text-sm font-light text-gray-400 italic" data-i18n="reviews-loading">Cargando
+                            opiniones...</p>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-10 reviews-nav">
+                    <button onclick="scrollReviews(-1)" aria-label="Anterior">←</button>
+                    <button onclick="scrollReviews(1)" aria-label="Siguiente">→</button>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-20 h-px bg-black/10 mx-auto my-24"></div>
+
+            <!-- Review Submission Form -->
+            <div class="max-w-2xl mx-auto reveal">
+                <h3 class="display text-4xl md:text-5xl italic mb-4 text-center tracking-tight"
+                    data-i18n="reviews-form-title">Dejá tu experiencia</h3>
+                <p class="text-center text-sm font-light text-gray-400 mb-16" data-i18n="reviews-form-desc">Tu opinión
+                    nos ayuda a seguir mejorando</p>
+
+                <!-- Success state -->
+                <div id="reviewFormSuccess"
+                    class="flex flex-col items-center justify-center text-center py-10 bg-off-white border border-black/5 rounded-2xl p-8">
+                    <p class="font-serif text-4xl italic mb-6 text-green-700" data-i18n="reviews-success">¡Gracias por
+                        tu opinión!</p>
+                    <p class="text-sm font-light text-gray-500 max-w-md" data-i18n="reviews-success-desc">Tu reseña será
+                        revisada y publicada próximamente.</p>
+                </div>
+
+                <form id="reviewForm" method="POST" action="https://romerobelvederelucas.getform.com/97xw9"
+                    class="space-y-10">
+                    <!-- Honeypot anti-spam -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="_subject" value="Nueva reseña del sitio web" />
+
+                    <!-- Star Rating -->
+                    <div class="text-center">
+                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-4 block"
+                            data-i18n="reviews-rating-label">Tu calificación *</label>
+                        <div class="star-rating justify-center" id="starRating">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                        <input type="hidden" name="stars" id="starsInput" value="" />
+                    </div>
+
+                    <!-- Name -->
+                    <div class="flex flex-col">
+                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-2" for="reviewName"
+                            data-i18n="reviews-name-label">Tu nombre *</label>
+                        <input type="text" name="reviewName" id="reviewName" placeholder="Ej. María L." required
+                            maxlength="50">
+                    </div>
+
+                    <!-- Review Text -->
+                    <div class="flex flex-col">
+                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-2" for="reviewText"
+                            data-i18n="reviews-text-label">Tu experiencia *</label>
+                        <textarea name="reviewText" id="reviewText" rows="3" maxlength="500"
+                            placeholder="Contános cómo fue tu experiencia..." data-i18n-ph="reviews-ph"
+                            required></textarea>
+                        <div class="char-counter" id="charCounter">0 / 500</div>
+                    </div>
+
+                    <!-- Math CAPTCHA -->
+                    <div class="flex flex-col items-center">
+                        <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-4"
+                            data-i18n="reviews-captcha-label">Verificación anti-spam *</label>
+                        <div class="captcha-box">
+                            <span id="captchaQuestion"></span>
+                            <span>=</span>
+                            <input type="number" id="captchaAnswer" required autocomplete="off">
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="text-center pt-4">
+                        <button type="submit" id="reviewSubmitBtn" class="btn-luxury" data-i18n="reviews-submit">Enviar
+                            Reseña</button>
+                        <p id="reviewStatusMsg"
+                            class="text-[10px] uppercase tracking-[0.3em] mt-6 font-bold text-gray-400"></p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -973,7 +1297,16 @@
                 "opt-sel-event": "Selecciona tipo de evento", "opt-novia": "Novia / Bridal", "opt-xv": "Quinceañera", "opt-social": "Social / Fiesta", "opt-media": "Media / TV / Producción",
                 "ph-msg": "Cuéntame sobre tu proyecto...", "err-msg": "Faltan campos obligatorios o el email es inválido (*)", "status-gen": "Enviando...", "status-wa": "Redirigiendo...",
                 "success-title": "¡Solicitud Enviada!", "success-desc": "Viviana ha recibido tu correo. Si prefieres acelerar la respuesta, puedes contactarla por WhatsApp ahora.", "back-btn": "Realizar otra consulta",
-                "footer-copy": "© 2026 Viviana Rojas Méndez. Palermo, Buenos Aires."
+                "footer-copy": "© 2026 Viviana Rojas Méndez. Palermo, Buenos Aires.",
+                "reviews-tag": "Testimonios", "reviews-title": "Reviews.", "reviews-loading": "Cargando opiniones...",
+                "reviews-form-title": "Dejá tu experiencia", "reviews-form-desc": "Tu opinión nos ayuda a seguir mejorando",
+                "reviews-rating-label": "Tu calificación *", "reviews-name-label": "Tu nombre *", "reviews-text-label": "Tu experiencia *",
+                "reviews-ph": "Contános cómo fue tu experiencia...", "reviews-captcha-label": "Verificación anti-spam *",
+                "reviews-submit": "Enviar Reseña", "reviews-success": "¡Gracias por tu opinión!",
+                "reviews-success-desc": "Tu reseña será revisada y publicada próximamente.",
+                "reviews-captcha-error": "Respuesta incorrecta. Intentá de nuevo.", "reviews-stars-error": "Seleccioná una calificación",
+                "reviews-no-reviews": "Aún no hay reseñas. ¡Sé el primero en dejar tu opinión!",
+                "reviews-error": "Error al enviar la reseña. Intentá de nuevo más tarde."
             },
             en: {
                 "nav-about": "About", "nav-portfolio": "Journal", "nav-services": "Services", "nav-contact": "Booking",
@@ -995,7 +1328,16 @@
                 "opt-sel-event": "Select event type", "opt-novia": "Bridal", "opt-xv": "Quinceañera", "opt-social": "Social / Party", "opt-media": "Media / TV / Production",
                 "ph-msg": "Tell me about your project...", "err-msg": "Missing fields or invalid email format (*)", "status-gen": "Sending...", "status-wa": "Redirecting...",
                 "success-title": "Request Sent!", "success-desc": "Viviana has received your email. If you prefer a faster response, you can contact her via WhatsApp now.", "back-btn": "Make another inquiry",
-                "footer-copy": "© 2026 Viviana Rojas Méndez. Palermo, Buenos Aires."
+                "footer-copy": "© 2026 Viviana Rojas Méndez. Palermo, Buenos Aires.",
+                "reviews-tag": "Testimonials", "reviews-title": "Reviews.", "reviews-loading": "Loading reviews...",
+                "reviews-form-title": "Share your experience", "reviews-form-desc": "Your feedback helps us keep improving",
+                "reviews-rating-label": "Your rating *", "reviews-name-label": "Your name *", "reviews-text-label": "Your experience *",
+                "reviews-ph": "Tell us about your experience...", "reviews-captcha-label": "Anti-spam verification *",
+                "reviews-submit": "Submit Review", "reviews-success": "Thanks for your review!",
+                "reviews-success-desc": "Your review will be moderated and published soon.",
+                "reviews-captcha-error": "Wrong answer. Try again.", "reviews-stars-error": "Please select a rating",
+                "reviews-no-reviews": "No reviews yet. Be the first to share your experience!",
+                "reviews-error": "Error submitting review. Please try again later."
             }
         };
 
@@ -1088,6 +1430,34 @@
             document.body.style.overflow = '';
         }
 
+        // Image Carousels
+        document.querySelectorAll('[data-carousel]').forEach(carousel => {
+            const slides = carousel.querySelector('.carousel-slides');
+            const images = slides.querySelectorAll('img');
+            const total = images.length;
+            let current = 0;
+
+            function goTo(index) {
+                if (index >= total) index = 0;
+                if (index < 0) index = total - 1;
+                current = index;
+                slides.style.transform = `translateX(-${current * 100}%)`;
+            }
+
+            const prevBtn = carousel.querySelector('.carousel-arrow.prev');
+            const nextBtn = carousel.querySelector('.carousel-arrow.next');
+            if (prevBtn) prevBtn.addEventListener('click', e => { e.stopPropagation(); goTo(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', e => { e.stopPropagation(); goTo(current + 1); });
+
+            // Touch swipe support
+            let startX = 0;
+            carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            carousel.addEventListener('touchend', e => {
+                const diff = startX - e.changedTouches[0].clientX;
+                if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+            }, { passive: true });
+        });
+
         // Real-time form validation
         document.querySelectorAll('#contactForm input[required], #contactForm select[required], #contactForm textarea[required]').forEach(field => {
             field.addEventListener('blur', function () {
@@ -1102,6 +1472,141 @@
             field.addEventListener('focus', function () {
                 this.classList.remove('error');
             });
+        });
+
+        // =====================
+        // REVIEWS SECTION
+        // =====================
+
+        // Load approved reviews from JSON
+        async function loadReviews() {
+            const track = document.getElementById('reviewsTrack');
+            try {
+                const res = await fetch('./reviews.json');
+                if (!res.ok) throw new Error('No reviews file');
+                const reviews = await res.json();
+                if (!reviews.length) {
+                    track.innerHTML = `<div class="review-card p-10 bg-off-white border border-black/5 text-center"><p class="text-sm font-light text-gray-400 italic">${translations[currentLang]['reviews-no-reviews']}</p></div>`;
+                    return;
+                }
+                track.innerHTML = reviews.map(r => `
+                    <div class="review-card p-10 bg-off-white border border-black/5">
+                        <div class="star-display text-xl mb-6">${'★'.repeat(r.stars)}${'<span class="text-gray-200">★</span>'.repeat(5 - r.stars)}</div>
+                        <p class="text-sm font-light leading-relaxed text-gray-600 mb-8 italic">"${r.text}"</p>
+                        <div class="flex justify-between items-end border-t border-black/5 pt-4">
+                            <span class="font-semibold text-xs uppercase tracking-widest">${r.name}</span>
+                            <span class="text-[9px] opacity-40 uppercase tracking-wider">${r.date}</span>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                track.innerHTML = `<div class="review-card p-10 bg-off-white border border-black/5 text-center"><p class="text-sm font-light text-gray-400 italic">${translations[currentLang]['reviews-no-reviews']}</p></div>`;
+            }
+        }
+        loadReviews();
+
+        // Carousel scroll
+        function scrollReviews(direction) {
+            const track = document.getElementById('reviewsTrack');
+            const cardWidth = track.querySelector('.review-card')?.offsetWidth || 400;
+            track.scrollBy({ left: direction * (cardWidth + 32), behavior: 'smooth' });
+        }
+
+        // Star Rating interaction
+        const starContainer = document.getElementById('starRating');
+        const starsInput = document.getElementById('starsInput');
+        let selectedStars = 0;
+
+        starContainer.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('mouseenter', function () {
+                const val = parseInt(this.dataset.value);
+                starContainer.querySelectorAll('.star').forEach((s, i) => {
+                    s.classList.toggle('hovered', i < val);
+                });
+            });
+            star.addEventListener('click', function () {
+                selectedStars = parseInt(this.dataset.value);
+                starsInput.value = selectedStars;
+                starContainer.querySelectorAll('.star').forEach((s, i) => {
+                    s.classList.toggle('active', i < selectedStars);
+                });
+            });
+        });
+
+        starContainer.addEventListener('mouseleave', () => {
+            starContainer.querySelectorAll('.star').forEach((s, i) => {
+                s.classList.remove('hovered');
+            });
+        });
+
+        // Character counter
+        const reviewText = document.getElementById('reviewText');
+        const charCounter = document.getElementById('charCounter');
+        reviewText.addEventListener('input', function () {
+            const len = this.value.length;
+            charCounter.textContent = `${len} / 500`;
+            charCounter.classList.toggle('warning', len >= 450);
+        });
+
+        // Math CAPTCHA
+        let captchaA, captchaB;
+        function generateCaptcha() {
+            captchaA = Math.floor(Math.random() * 9) + 1;
+            captchaB = Math.floor(Math.random() * 9) + 1;
+            document.getElementById('captchaQuestion').textContent = `${captchaA} + ${captchaB}`;
+        }
+        generateCaptcha();
+
+        // Review form submission
+        const reviewForm = document.getElementById('reviewForm');
+        reviewForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const statusMsg = document.getElementById('reviewStatusMsg');
+            const submitBtn = document.getElementById('reviewSubmitBtn');
+            const originalText = submitBtn.textContent;
+
+            // Validate stars
+            if (!selectedStars) {
+                statusMsg.textContent = translations[currentLang]['reviews-stars-error'];
+                statusMsg.style.color = '#ef4444';
+                return;
+            }
+
+            // Validate CAPTCHA
+            const userAnswer = parseInt(document.getElementById('captchaAnswer').value);
+            if (userAnswer !== captchaA + captchaB) {
+                statusMsg.textContent = translations[currentLang]['reviews-captcha-error'];
+                statusMsg.style.color = '#ef4444';
+                generateCaptcha();
+                document.getElementById('captchaAnswer').value = '';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = translations[currentLang]['status-gen'];
+
+            try {
+                const response = await fetch(reviewForm.action, {
+                    method: 'POST',
+                    body: new FormData(reviewForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    reviewForm.style.display = 'none';
+                    document.getElementById('reviewFormSuccess').classList.add('active');
+                } else {
+                    statusMsg.textContent = translations[currentLang]['reviews-error'];
+                    statusMsg.style.color = '#ef4444';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            } catch (error) {
+                statusMsg.textContent = translations[currentLang]['reviews-error'];
+                statusMsg.style.color = '#ef4444';
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
         });
     </script>
 
