@@ -14,7 +14,7 @@
     <!-- SEO BÁSICO -->
     <title>Viviana Rojas Méndez | Makeup & Hair Artist | Buenos Aires</title>
     <meta name="description"
-        content="Maquilladora profesional especializada en HD para TV, moda y novias. +10 años de experiencia. Colaboradora en 'Canta Conmigo Ahora' y editoriales de lujo en Buenos Aires, Argentina.">
+        content="Maquilladora y estilista profesional en Buenos Aires. Especialista en novias, quinceañeras, TV y moda editorial. +10 años de experiencia.">
     <meta name="keywords"
         content="maquilladora profesional buenos aires, makeup artist editorial, maquillaje HD tv, maquillaje novia argentina, hair artist buenos aires, viviana rojas mendez">
     <meta name="author" content="Viviana Rojas Méndez">
@@ -30,7 +30,7 @@
     <!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vivianarojasmendez.com/">
-    <meta property="og:title" content="Viviana Rojas Méndez | Makeup & Hair Artist Editorial">
+    <meta property="og:title" content="Viviana Rojas Méndez | Makeup & Hair Artist | Buenos Aires">
     <meta property="og:description"
         content="Maquilladora profesional especializada en HD para TV, moda y novias. +10 años de experiencia en Buenos Aires.">
     <meta property="og:image" content="https://vivianarojasmendez.com/og-image.jpg">
@@ -43,24 +43,19 @@
     <!-- TWITTER CARDS -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://vivianarojasmendez.com/">
-    <meta name="twitter:title" content="Viviana Rojas Méndez | Makeup & Hair Artist Editorial">
+    <meta name="twitter:title" content="Viviana Rojas Méndez | Makeup & Hair Artist | Buenos Aires">
     <meta name="twitter:description"
         content="Maquilladora profesional especializada en HD para TV, moda y novias. +10 años de experiencia en Buenos Aires.">
     <meta name="twitter:image" content="https://vivianarojasmendez.com/twitter-card.jpg">
 
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
+
 
     <!-- THEME COLOR -->
     <meta name="theme-color" content="#F4E8E2">
     <meta name="msapplication-TileColor" content="#F4E8E2">
 
-    <!-- HREFLANG (Bilingüe ES/EN) -->
+    <!-- HREFLANG -->
     <link rel="alternate" hreflang="es" href="https://vivianarojasmendez.com/">
-    <link rel="alternate" hreflang="en" href="https://vivianarojasmendez.com/en/">
     <link rel="alternate" hreflang="x-default" href="https://vivianarojasmendez.com/">
 
     <!-- FONTS OPTIMIZADAS -->
@@ -183,8 +178,6 @@
         .img-reveal {
             position: relative;
             overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-            /* Start hidden top-down or similar */
             clip-path: inset(100% 0 0 0);
             transition: clip-path 1.8s cubic-bezier(0.77, 0, 0.175, 1);
         }
@@ -309,8 +302,8 @@
 
         .lang-link.active {
             opacity: 1;
-            color: var(--brand-brown);
-            border-bottom: 1px solid var(--brand-brown);
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
         }
 
         .wa-float {
@@ -351,12 +344,106 @@
                 opacity: 1;
             }
         }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 1.5px;
+            background: var(--text-main);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(4.5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-4.5px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            background: rgba(250, 250, 250, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-style: italic;
+            color: var(--text-main);
+            transition: color 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease, color 0.3s;
+        }
+
+        .mobile-menu.active a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .mobile-menu.active a:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu.active a:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .mobile-menu.active a:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Form validation */
+        .field-valid {
+            border-bottom-color: #22c55e !important;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- NAVEGACIÓN -->
     <!-- NAVEGACIÓN -->
     <nav
         class="fixed top-0 left-0 w-full z-[100] px-6 md:px-12 py-6 flex justify-between items-center transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-black/5">
@@ -374,14 +461,29 @@
                 data-i18n="nav-contact">Reservar</a>
         </div>
 
-        <div class="flex gap-4 text-xs font-medium">
-            <span id="lang-es" class="lang-link active" onclick="setLanguage('es')">ES</span>
-            <span class="text-gray-300">|</span>
-            <span id="lang-en" class="lang-link" onclick="setLanguage('en')">EN</span>
+        <div class="flex items-center gap-6">
+            <div class="flex gap-4 text-xs font-medium">
+                <span id="lang-es" class="lang-link active" onclick="setLanguage('es')">ES</span>
+                <span class="text-gray-300">|</span>
+                <span id="lang-en" class="lang-link" onclick="setLanguage('en')">EN</span>
+            </div>
+            <!-- Hamburger (mobile only) -->
+            <div class="hamburger md:hidden" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" onclick="closeMobileMenu()" data-i18n="nav-about">Sobre Mí</a>
+        <a href="#portfolio" onclick="closeMobileMenu()" data-i18n="nav-portfolio">Galería</a>
+        <a href="#planes" onclick="closeMobileMenu()" data-i18n="nav-services">Servicios</a>
+        <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav-contact">Reservar</a>
+    </div>
+
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden px-4 md:px-6 bg-off-white">
         <!-- Subtle Background Graphic/Gradient -->
@@ -414,7 +516,6 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
     <!-- ABOUT -->
     <section id="about" class="relative py-32 px-6 md:px-16 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -487,7 +588,6 @@
     </section>
 
     <!-- MARCAS CAROUSEL -->
-    <!-- MARCAS CAROUSEL -->
     <section class="py-16 overflow-hidden border-b border-black/5 bg-white">
         <p class="text-center text-[9px] uppercase tracking-[0.4em] mb-12 font-bold opacity-40" data-i18n="brands-tag">
             Marcas de Confianza</p>
@@ -520,7 +620,6 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO / JOURNAL -->
     <!-- PORTFOLIO / JOURNAL -->
     <section id="portfolio" class="py-40 px-4 md:px-8 bg-soft-gray">
         <div class="text-center mb-32 reveal">
@@ -620,7 +719,6 @@
     </section>
 
     <!-- PLANES -->
-    <!-- PLANES -->
     <section id="planes" class="py-32 bg-off-white text-left">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Plan 1: Maquillaje o Peinado -->
@@ -705,7 +803,6 @@
         </div>
     </section>
 
-    <!-- CONTACTO -->
     <!-- CONTACTO -->
     <section id="contact" class="py-32 px-6 md:px-12 relative bg-white overflow-hidden">
         <div class="max-w-4xl mx-auto relative z-10">
@@ -804,7 +901,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <!-- FOOTER -->
     <footer class="py-24 border-t border-black/5 px-8 bg-off-white text-center">
         <div class="serif text-3xl italic mb-10">Viviana Rojas Méndez</div>
@@ -973,6 +1069,39 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
             }
+        });
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('hamburgerBtn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('hamburgerBtn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Real-time form validation
+        document.querySelectorAll('#contactForm input[required], #contactForm select[required], #contactForm textarea[required]').forEach(field => {
+            field.addEventListener('blur', function () {
+                if (this.value.trim() === '' || !this.checkValidity()) {
+                    this.classList.add('error');
+                    this.classList.remove('field-valid');
+                } else {
+                    this.classList.remove('error');
+                    this.classList.add('field-valid');
+                }
+            });
+            field.addEventListener('focus', function () {
+                this.classList.remove('error');
+            });
         });
     </script>
 
