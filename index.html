@@ -641,18 +641,11 @@
                 </div>
             </div>
 
-            <!-- FORMULARIO NETLIFY - MÉTODO CORRECTO CON ACTION EXPLÍCITO -->
-            <form name="luxury-contact" method="POST" action="/gracias.html" data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 reveal text-left" id="contactForm"
-                onsubmit="handleFormSubmit()">
+            <!-- FORMULARIO FORMSPREE -->
+            <form method="POST" action="https://formspree.io/f/xqedbeyq"
+                class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 reveal text-left" id="contactForm">
 
-                <!-- Hidden fields para Netlify -->
-                <input type="hidden" name="form-name" value="luxury-contact" />
                 <input type="hidden" name="language" id="languageField" value="es" />
-                <p class="hidden-field">
-                    <label>No llenar este campo: <input name="bot-field" /></label>
-                </p>
 
                 <div class="flex flex-col">
                     <label class="text-[9px] uppercase tracking-widest font-bold opacity-30 mb-2" for="name"
@@ -809,20 +802,49 @@
             document.getElementById('languageField').value = lang;
         }
 
-        // Función para manejar el envío del formulario
-        function handleFormSubmit() {
-            const lang = currentLang;
-            const form = document.getElementById('contactForm');
+        // Manejar envío del formulario via Formspree (AJAX)
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-            // Establecer action según idioma
-            if (lang === 'en') {
-                form.action = '/thanks.html';
-            } else {
-                form.action = '/gracias.html';
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const statusMsg = document.getElementById('statusMsg');
+            const originalBtnText = submitBtn.textContent;
+
+            // Mostrar estado de envío
+            submitBtn.disabled = true;
+            submitBtn.textContent = translations[currentLang]['status-gen'];
+            statusMsg.textContent = translations[currentLang]['status-gen'];
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Éxito: redirigir a página de agradecimiento según idioma
+                    if (currentLang === 'en') {
+                        window.location.href = '/thanks.html';
+                    } else {
+                        window.location.href = '/gracias.html';
+                    }
+                } else {
+                    const data = await response.json();
+                    statusMsg.textContent = data.errors ? data.errors.map(e => e.message).join(', ') : translations[currentLang]['err-msg'];
+                    statusMsg.style.color = '#ef4444';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+                }
+            } catch (error) {
+                statusMsg.textContent = translations[currentLang]['err-msg'];
+                statusMsg.style.color = '#ef4444';
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
             }
-
-            return true; // Permitir que el formulario se envíe
-        }
+        });
     </script>
 
 </body>
