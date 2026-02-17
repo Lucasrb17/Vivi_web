@@ -492,6 +492,24 @@
             right: 12px;
         }
 
+        /* About section watermark overlay */
+        .about-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45%;
+            height: 20%;
+            background: linear-gradient(to top right, rgba(255, 255, 255, 0.92) 20%, transparent 80%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
         @media (max-width: 768px) {
             .img-carousel .carousel-arrow {
                 opacity: 1;
@@ -723,7 +741,7 @@
                     industria de la belleza. Mi versatilidad y búsqueda constante de la perfección me han permitido
                     dejar mi huella en prestigiosas editoriales de moda, pasarelas y en las pantallas más importantes de
                     la televisión argentina, formando parte de equipos en programas como Telefe Noticias, LAM y Canta
-                    Conmigo Now.
+                    Conmigo.
                 </p>
                 <p class="font-light text-lg leading-relaxed mb-8 text-gray-600" data-i18n="about-p2">
                     Como especialista en novias y quinceañeras, me distingo por un enfoque meticuloso y la capacidad de
@@ -766,11 +784,35 @@
             </div>
 
             <div class="relative reveal order-1 md:order-2">
-                <div class="img-reveal">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=800"
-                        alt="Viviana Rojas Méndez - Makeup Artist trabajando"
-                        class="w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                        loading="lazy">
+                <!-- Main Carousel -->
+                <div class="about-img img-carousel h-[500px] md:h-[650px] rounded-sm" data-carousel>
+                    <div class="carousel-slides h-full">
+                        <img src="img/IMG_0530.webp" alt="Viviana Rojas Méndez - Makeup Artist"
+                            class="w-full h-full object-cover object-top" loading="lazy">
+                        <img src="img/IMG_0531.webp" alt="Viviana Rojas Méndez - Estilista profesional"
+                            class="w-full h-full object-cover object-top" loading="lazy">
+                        <img src="img/IMG_0532.webp" alt="Viviana Rojas Méndez trabajando"
+                            class="w-full h-full object-cover object-top" loading="lazy">
+                        <img src="img/IMG_0533.webp" alt="Viviana Rojas Méndez - Beauty Expert"
+                            class="w-full h-full object-cover object-top" loading="lazy">
+                        <img src="img/IMG_0534.webp" alt="Viviana Rojas Méndez - Maquilladora"
+                            class="w-full h-full object-cover object-top" loading="lazy">
+                    </div>
+                    <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
+                    <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
+                </div>
+                <!-- Accent Strip -->
+                <div class="grid grid-cols-2 gap-3 mt-3">
+                    <div class="about-img h-[180px] md:h-[220px] rounded-sm overflow-hidden">
+                        <img src="img/IMG_2858.webp" alt="Viviana Rojas Méndez - Behind the scenes"
+                            class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                            loading="lazy">
+                    </div>
+                    <div class="about-img h-[180px] md:h-[220px] rounded-sm overflow-hidden">
+                        <img src="img/IMG_2923.webp" alt="Viviana Rojas Méndez - Backstage"
+                            class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                            loading="lazy">
+                    </div>
                 </div>
                 <!-- Creative offset border -->
                 <div class="absolute top-10 -right-6 w-full h-full border border-black/10 -z-10 hidden md:block"></div>
