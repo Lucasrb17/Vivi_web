@@ -132,6 +132,9 @@
     }
     </script>
 
+    <!-- VERCEL WEB ANALYTICS -->
+    <script defer src="/_vercel/insights/script.js"></script>
+
     <style>
         :root {
             --bg-body: #FAFAFA;
@@ -1197,8 +1200,7 @@
             class="flex flex-col md:flex-row justify-center gap-12 text-[10px] uppercase tracking-widest font-bold mb-12 text-gray-500">
             <div class="flex flex-col gap-2">
                 <span class="opacity-30">Email</span>
-                <a href="mailto:vivianarojasmendez@gmail.com" title="Enviar email a Viviana Rojas Méndez"
-                    class="hover:text-black transition-colors">vivianarojasmendez@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#2f594659464e414e5d40454e5c424a414b4a556f48424e4643014c4042" title="Enviar email a Viviana Rojas Méndez" class="hover:text-black transition-colors"><span class="__cf_email__" data-cfemail="d5a3bca3bcb4bbb4a7babfb4a6b8b0bbb1b0af95b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a>
             </div>
             <div class="flex flex-col gap-2">
                 <span class="opacity-30">WhatsApp</span>
@@ -1229,7 +1231,7 @@
         </svg>
     </a>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Intersection Observer para animaciones
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1471,14 +1473,4 @@
 
         // Carousel scroll
         function scrollReviews(direction) {
-            const track = document.getElementById('reviewsTrack');
-            const cardWidth = track.querySelector('.review-card')?.offsetWidth || 400;
-            track.scrollBy({ left: direction * (cardWidth + 32), behavior: 'smooth' });
-        }
-
-
-    </script>
-
-</body>
-
-</html>
+            const track = document.getElemen
