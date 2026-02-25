@@ -656,7 +656,9 @@
     <!-- NAVEGACIÓN -->
     <nav
         class="fixed top-0 left-0 w-full z-[100] px-6 md:px-12 py-6 flex justify-between items-center transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-black/5">
-        <div class="serif text-2xl md:text-3xl tracking-tight font-medium">Viviana Rojas Méndez</div>
+        <a href="#"
+            class="serif text-2xl md:text-3xl tracking-tight font-medium hover:text-accent-clay transition-colors cursor-pointer">Viviana
+            Rojas Méndez</a>
 
         <div
             class="hidden md:flex items-center space-x-12 text-[11px] uppercase tracking-[0.2em] font-semibold text-editorial-black/80">
@@ -687,6 +689,13 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu" id="mobileMenu">
+        <!-- Close Button -->
+        <button onclick="closeMobileMenu()" class="absolute top-6 right-6 md:hidden z-50 p-2" aria-label="Cerrar menú">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8 text-text-main">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
         <a href="#about" onclick="closeMobileMenu()" data-i18n="nav-about">Sobre Mí</a>
         <a href="#portfolio" onclick="closeMobileMenu()" data-i18n="nav-portfolio">Galería</a>
         <a href="#planes" onclick="closeMobileMenu()" data-i18n="nav-services">Servicios</a>
@@ -737,22 +746,14 @@
                 <div class="w-20 h-px bg-accent-clay mb-10"></div>
 
                 <p class="font-light text-lg leading-relaxed mb-8 text-gray-600" data-i18n="about-p1">
-                    Soy Viviana Rojas Méndez, maquilladora y estilista con más de una década de trayectoria en la
-                    industria de la belleza. Mi versatilidad y búsqueda constante de la perfección me han permitido
-                    dejar mi huella en prestigiosas editoriales de moda, pasarelas y en las pantallas más importantes de
-                    la televisión argentina, formando parte de equipos en programas como Telefe Noticias, LAM y Canta
-                    Conmigo.
+                    Soy Viviana Rojas Méndez, maquilladora y estilista con más de una década de experiencia. He
+                    trabajado en moda, pasarelas y en la televisión argentina (Telefe Noticias, LAM, Canta Conmigo).
                 </p>
-                <p class="font-light text-lg leading-relaxed mb-8 text-gray-600" data-i18n="about-p2">
-                    Como especialista en novias y quinceañeras, me distingo por un enfoque meticuloso y la capacidad de
-                    resaltar la esencia única de cada persona que confía en mi trabajo. Me apasionan los detalles y
-                    entiendo que estos momentos son irrepetibles.
+                <p class="font-light text-lg leading-relaxed text-gray-600" data-i18n="about-p2">
+                    Especializada en novias y quinceañeras, ofrezco un acompañamiento integral y asesoría personalizada
+                    para resaltar tu esencia en tus momentos más irrepetibles.
                 </p>
-                <p class="font-light text-lg leading-relaxed text-gray-600" data-i18n="about-p3">
-                    Para mí, esto es mucho más que un servicio de belleza; es un acompañamiento integral y una asesoría
-                    personalizada desde el primer contacto. Mi objetivo es estar a tu lado en cada paso, asegurándome de
-                    que cada detalle sea impecable para que brilles en tus momentos más inolvidables.
-                </p>
+                <p class="hidden" data-i18n="about-p3"></p>
 
                 <div class="mt-12 flex flex-wrap gap-8">
                     <div class="text-center">
@@ -785,7 +786,7 @@
 
             <div class="relative reveal order-1 md:order-2">
                 <!-- Main Carousel -->
-                <div class="about-img img-carousel h-[500px] md:h-[650px] rounded-sm" data-carousel>
+                <div class="about-img img-carousel h-[350px] md:h-[650px] rounded-sm" data-carousel>
                     <div class="carousel-slides h-full">
                         <img src="img/IMG_0530.webp" alt="Viviana Rojas Méndez - Makeup Artist"
                             class="w-full h-full object-cover object-top" loading="lazy">
@@ -801,55 +802,9 @@
                     <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
                     <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
                 </div>
-                <!-- Accent Strip -->
-                <div class="grid grid-cols-2 gap-3 mt-3">
-                    <div class="about-img h-[180px] md:h-[220px] rounded-sm overflow-hidden">
-                        <img src="img/IMG_2858.webp" alt="Viviana Rojas Méndez - Behind the scenes"
-                            class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
-                            loading="lazy">
-                    </div>
-                    <div class="about-img h-[180px] md:h-[220px] rounded-sm overflow-hidden">
-                        <img src="img/IMG_2923.webp" alt="Viviana Rojas Méndez - Backstage"
-                            class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
-                            loading="lazy">
-                    </div>
-                </div>
                 <!-- Creative offset border -->
                 <div class="absolute top-10 -right-6 w-full h-full border border-black/10 -z-10 hidden md:block"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- MARCAS CAROUSEL -->
-    <section class="py-16 overflow-hidden border-b border-black/5 bg-white">
-        <p class="text-center text-[9px] uppercase tracking-[0.4em] mb-12 font-bold opacity-40" data-i18n="brands-tag">
-            Marcas de Confianza</p>
-        <div class="carousel-track grayscale opacity-60">
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">MAC</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">DIOR</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Natasha Denona</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">KIKO Milano</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Make Up For Ever</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Lancôme</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Givenchy</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Inglot</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Revlon</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Schwarzkopf</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">TIGI</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">L'Oréal</div>
-            <!-- Duplicated for seamless loop -->
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">MAC</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">DIOR</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Natasha Denona</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">KIKO Milano</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Make Up For Ever</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Lancôme</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Givenchy</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Inglot</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Revlon</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Schwarzkopf</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">TIGI</div>
-            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">L'Oréal</div>
         </div>
     </section>
 
@@ -1062,33 +1017,37 @@
         </div>
     </section>
 
-    <!-- REVIEWS / TESTIMONIOS -->
-    <section id="reviews" class="py-32 px-6 md:px-12 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <!-- Header -->
-            <div class="text-center mb-20 reveal">
-                <p class="text-[10px] uppercase tracking-[0.4em] mb-6 font-bold text-accent-clay"
-                    data-i18n="reviews-tag">Testimonios</p>
-                <h2 class="display text-[5rem] md:text-[10rem] italic tracking-tighter leading-[0.8]"
-                    data-i18n="reviews-title">Reviews.</h2>
-            </div>
-
-            <!-- Approved Reviews Carousel -->
-            <div class="relative reveal">
-                <div class="reviews-track" id="reviewsTrack">
-                    <!-- Reviews loaded dynamically from reviews.json -->
-                    <div class="review-card p-10 bg-off-white border border-black/5 text-center">
-                        <p class="text-sm font-light text-gray-400 italic" data-i18n="reviews-loading">Cargando
-                            opiniones...</p>
-                    </div>
-                </div>
-                <div class="flex justify-center mt-10 reviews-nav">
-                    <button onclick="scrollReviews(-1)" aria-label="Anterior">←</button>
-                    <button onclick="scrollReviews(1)" aria-label="Siguiente">→</button>
-                </div>
-            </div>
-
-
+    <!-- MARCAS CAROUSEL -->
+    <section class="py-16 overflow-hidden border-b border-black/5 bg-white">
+        <p class="text-center text-[9px] uppercase tracking-[0.4em] mb-12 font-bold opacity-40" data-i18n="brands-tag">
+            Marcas de Confianza</p>
+        <div class="carousel-track grayscale opacity-60">
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">MAC</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">DIOR</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Natasha Denona</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">KIKO Milano</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Make Up For Ever</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Lancôme</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Givenchy</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Inglot</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Revlon</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Schwarzkopf</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">TIGI</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">L'Oréal</div>
+            <!-- Duplicated for seamless loop -->
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">MAC</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">DIOR</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Natasha Denona</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">KIKO Milano</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Make Up For Ever</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Lancôme</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Givenchy</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Inglot</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Revlon</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">Schwarzkopf</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">TIGI</div>
+            <div class="px-12 text-2xl md:text-4xl font-serif italic whitespace-nowrap">L'Oréal</div>
+        </div>
     </section>
 
     <!-- CONTACTO -->
@@ -1149,10 +1108,10 @@
                         data-i18n="form-plan">Plan *</label>
                     <select name="plan" id="plan" required>
                         <option value="" disabled selected data-i18n="opt-sel-plan">Selecciona un servicio</option>
-                        <option value="Maquillaje o Peinado" data-i18n="opt-plan1">Maquillaje o Peinado</option>
-                        <option value="Maquillaje y Peinado" data-i18n="opt-plan2">Maquillaje y Peinado</option>
                         <option value="Maquillaje y Peinado con Prueba" data-i18n="opt-plan3">Maquillaje y Peinado con
                             Prueba (Recomendado)</option>
+                        <option value="Maquillaje o Peinado" data-i18n="opt-plan1">Maquillaje o Peinado</option>
+                        <option value="Maquillaje y Peinado" data-i18n="opt-plan2">Maquillaje y Peinado</option>
                     </select>
                 </div>
 
@@ -1187,6 +1146,35 @@
                 </div>
             </form>
         </div>
+    </section>
+
+    <!-- REVIEWS / TESTIMONIOS -->
+    <section id="reviews" class="py-32 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-20 reveal">
+                <p class="text-[10px] uppercase tracking-[0.4em] mb-6 font-bold text-accent-clay"
+                    data-i18n="reviews-tag">Testimonios</p>
+                <h2 class="display text-[5rem] md:text-[10rem] italic tracking-tighter leading-[0.8]"
+                    data-i18n="reviews-title">Reviews.</h2>
+            </div>
+
+            <!-- Approved Reviews Carousel -->
+            <div class="relative reveal">
+                <div class="reviews-track" id="reviewsTrack">
+                    <!-- Reviews loaded dynamically from reviews.json -->
+                    <div class="review-card p-10 bg-off-white border border-black/5 text-center">
+                        <p class="text-sm font-light text-gray-400 italic" data-i18n="reviews-loading">Cargando
+                            opiniones...</p>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-10 reviews-nav">
+                    <button onclick="scrollReviews(-1)" aria-label="Anterior">←</button>
+                    <button onclick="scrollReviews(1)" aria-label="Siguiente">→</button>
+                </div>
+            </div>
+
+
     </section>
 
     <!-- FOOTER -->
@@ -1245,9 +1233,9 @@
                 "nav-about": "Sobre Mí", "nav-portfolio": "Galería", "nav-services": "Servicios", "nav-contact": "Reservar",
                 "hero-tag": "Makeup & Hair Artist", "hero-t1": "The", "hero-t2": "Musa.", "hero-desc": "Potenciando tu belleza con técnicas profesionales y un enfoque personalizado para cada ocasión especial.", "hero-btn": "Agendar Cita",
                 "about-title": "The Expertise.", "about-bg-text": "ART",
-                "about-p1": "Soy Viviana Rojas Méndez, maquilladora y estilista con más de una década de trayectoria en la industria de la belleza. Mi versatilidad y búsqueda constante de la perfección me han permitido dejar mi huella en prestigiosas editoriales de moda, pasarelas y en las pantallas más importantes de la televisión argentina, formando parte de equipos en programas como Telefe Noticias, LAM y Canta Conmigo.",
-                "about-p2": "Como especialista en novias y quinceañeras, me distingo por un enfoque meticuloso y la capacidad de resaltar la esencia única de cada persona que confía en mi trabajo. Me apasionan los detalles y entiendo que estos momentos son irrepetibles.",
-                "about-p3": "Para mí, esto es mucho más que un servicio de belleza; es un acompañamiento integral y una asesoría personalizada desde el primer contacto. Mi objetivo es estar a tu lado en cada paso, asegurándome de que cada detalle sea impecable para que brilles en tus momentos más inolvidables.",
+                "about-p1": "Soy Viviana Rojas Méndez, maquilladora y estilista con más de una década de experiencia. He trabajado en moda, pasarelas y en la televisión argentina (Telefe Noticias, LAM, Canta Conmigo).",
+                "about-p2": "Especializada en novias y quinceañeras, ofrezco un acompañamiento integral y asesoría personalizada para resaltar tu esencia en tus momentos más irrepetibles.",
+                "about-p3": "",
                 "stat-exp": "Años Exp.", "stat-tv": "Specialist", "stat-fashion": "Editorial", "stat-bridal": "Novias", "stat-xv": "Quinceañeras",
                 "brands-tag": "Marcas de Confianza",
                 "journal-tag": "Portfolio", "journal-title": "Journal.", "proj-1-title": "Novias", "proj-1-tag": "Bridal", "proj-2-title": "Quinceañeras", "proj-2-tag": "XV", "proj-3-title": "Moda", "proj-3-tag": "Fashion Editorial",
@@ -1276,9 +1264,9 @@
                 "nav-about": "About", "nav-portfolio": "Journal", "nav-services": "Services", "nav-contact": "Booking",
                 "hero-tag": "Makeup & Hair Artist", "hero-t1": "The", "hero-t2": "Muse.", "hero-desc": "Enhancing your beauty with professional techniques and a personalized approach for every special occasion.", "hero-btn": "Book Appointment",
                 "about-title": "The Expertise.", "about-bg-text": "ART",
-                "about-p1": "I'm Viviana Rojas Méndez, a makeup artist and stylist with over a decade of experience in the beauty industry. My versatility and constant pursuit of perfection have allowed me to leave my mark on prestigious fashion editorials, runways, and on the most important screens of Argentine television, working on shows like Telefe Noticias, LAM, and Canta Conmigo.",
-                "about-p2": "As a bridal and quinceañera specialist, I stand out for my meticulous approach and the ability to highlight the unique essence of every person who trusts me with their look. I'm passionate about details and understand that these moments are once-in-a-lifetime.",
-                "about-p3": "For me, this is much more than a beauty service; it's a comprehensive accompaniment and personalized consulting from the very first contact. My goal is to be by your side every step of the way, ensuring every detail is flawless so you shine in your most unforgettable moments.",
+                "about-p1": "I'm Viviana Rojas Méndez, a makeup artist and stylist with over a decade of experience. I have worked in fashion, runways, and on Argentine television (Telefe Noticias, LAM, Canta Conmigo).",
+                "about-p2": "As a bridal and quinceañera specialist, I offer comprehensive accompaniment and personalized consulting to highlight your unique essence in your once-in-a-lifetime moments.",
+                "about-p3": "",
                 "stat-exp": "Years Exp.", "stat-tv": "Specialist", "stat-fashion": "Editorial", "stat-bridal": "Bridal", "stat-xv": "Quinceañeras",
                 "brands-tag": "Trusted Brands",
                 "journal-tag": "Portfolio", "journal-title": "Journal.", "proj-1-title": "Brides", "proj-1-tag": "Bridal", "proj-2-title": "Quinceañeras", "proj-2-tag": "XV", "proj-3-title": "Fashion", "proj-3-tag": "Fashion Editorial",
@@ -1320,6 +1308,11 @@
 
             // Actualizar campo hidden de idioma
             document.getElementById('languageField').value = lang;
+
+            // Re-render reviews si ya están cargados para aplicar la traducción
+            if (typeof renderReviews === 'function') {
+                renderReviews();
+            }
         }
 
         // Pre-llenar el select de plan al hacer clic desde un servicio
@@ -1442,30 +1435,61 @@
         // REVIEWS SECTION
         // =====================
 
+        let reviewsData = [];
+
         // Load approved reviews from JSON
         async function loadReviews() {
             const track = document.getElementById('reviewsTrack');
             try {
                 const res = await fetch('./reviews.json');
                 if (!res.ok) throw new Error('No reviews file');
-                const reviews = await res.json();
-                if (!reviews.length) {
-                    track.innerHTML = `<div class="review-card p-10 bg-off-white border border-black/5 text-center"><p class="text-sm font-light text-gray-400 italic">${translations[currentLang]['reviews-no-reviews']}</p></div>`;
-                    return;
-                }
-                track.innerHTML = reviews.map(r => `
-                    <div class="review-card p-10 bg-off-white border border-black/5">
-                        <div class="star-display text-xl mb-6">${'★'.repeat(r.stars)}${'<span class="text-gray-200">★</span>'.repeat(5 - r.stars)}</div>
-                        <p class="text-sm font-light leading-relaxed text-gray-600 mb-8 italic">"${r.text}"</p>
-                        <div class="flex justify-between items-end border-t border-black/5 pt-4">
-                            <span class="font-semibold text-xs uppercase tracking-widest">${r.name}</span>
-                            <span class="text-[9px] opacity-40 uppercase tracking-wider">${r.date}</span>
-                        </div>
-                    </div>
-                `).join('');
+                reviewsData = await res.json();
+                renderReviews();
             } catch (e) {
-                track.innerHTML = `<div class="review-card p-10 bg-off-white border border-black/5 text-center"><p class="text-sm font-light text-gray-400 italic">${translations[currentLang]['reviews-no-reviews']}</p></div>`;
+                // Fallback for local viewing (file:// protocol) which blocks fetch due to CORS
+                reviewsData = [
+                    {
+                        "name": "Paula C.",
+                        "stars": 5,
+                        "text_es": "Vivi, gracias por tu paciencia y buena onda! Todo el mundo elogió mi maquillaje. Les encantaron lo que hiciste en los ojos, fue una obra de arte! Gracias por todo y te felicito por tu gran talento!",
+                        "text_en": "Vivi, thank you for your patience and good vibes! Everyone praised my makeup. They loved what you did with my eyes, it was a work of art! Thanks for everything and congratulations on your great talent!",
+                        "date": "2018-11"
+                    },
+                    {
+                        "name": "Marcela D.",
+                        "stars": 5,
+                        "text_es": "Qué decirte, Viviana... Gracias, infinitas gracias por tu excelente trabajo con mi hija y conmigo. Súper agradecida no solamente por tu profesionalismo sino también por tu calidez, dulzura y trato.",
+                        "text_en": "What can I tell you, Viviana... Thank you, infinite thanks for your excellent work with my daughter and me. Super grateful not only for your professionalism but also for your warmth, sweetness and treatment.",
+                        "date": "2024-06"
+                    },
+                    {
+                        "name": "Florencia M.",
+                        "stars": 5,
+                        "text_es": "Gracias Vivi por excelente trabajo! Un gusto conocerte! Llegué pasadas las 7 de la mañana después de haber bailado toda la noche con mi maquillaje impecable.",
+                        "text_en": "Thanks Vivi for excellent work! Nice to meet you! I arrived past 7 in the morning after dancing all night with my makeup impeccable.",
+                        "date": "2019-10"
+                    }
+                ];
+                renderReviews();
             }
+        }
+
+        function renderReviews() {
+            const track = document.getElementById('reviewsTrack');
+            if (!reviewsData || !reviewsData.length) {
+                track.innerHTML = `<div class="review-card p-10 bg-off-white border border-black/5 text-center"><p class="text-sm font-light text-gray-400 italic">${translations[currentLang]['reviews-no-reviews']}</p></div>`;
+                return;
+            }
+            track.innerHTML = reviewsData.map(r => `
+                <div class="review-card p-10 bg-off-white border border-black/5">
+                    <div class="star-display text-xl mb-6">${'★'.repeat(r.stars)}${'<span class="text-gray-200">★</span>'.repeat(5 - r.stars)}</div>
+                    <p class="text-sm font-light leading-relaxed text-gray-600 mb-8 italic">"${currentLang === 'en' && r.text_en ? r.text_en : (r.text_es || r.text)}"</p>
+                    <div class="flex justify-between items-end border-t border-black/5 pt-4">
+                        <span class="font-semibold text-xs uppercase tracking-widest">${r.name}</span>
+                        <span class="text-[9px] opacity-40 uppercase tracking-wider">${r.date}</span>
+                    </div>
+                </div>
+            `).join('');
         }
         loadReviews();
 

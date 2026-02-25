@@ -2,19 +2,22 @@
   {
     "name": "Paula C.",
     "stars": 5,
-    "text": "Vivi, gracias por tu paciencia y buena onda! Todo el mundo elogió mi maquillaje. Les encantaron lo que hiciste en los ojos, fue una obra de arte! Gracias por todo y te felicito por tu gran talento!",
+    "text_es": "Vivi, gracias por tu paciencia y buena onda! Todo el mundo elogió mi maquillaje. Les encantaron lo que hiciste en los ojos, fue una obra de arte! Gracias por todo y te felicito por tu gran talento!",
+    "text_en": "Vivi, thank you for your patience and good vibes! Everyone praised my makeup. They loved what you did with my eyes, it was a work of art! Thanks for everything and congratulations on your great talent!",
     "date": "2018-11"
   },
   {
     "name": "Marcela D.",
     "stars": 5,
-    "text": "Qué decirte, Viviana... Gracias, infinitas gracias por tu excelente trabajo con mi hija y conmigo. Súper agradecida no solamente por tu profesionalismo sino también por tu calidez, dulzura y trato.",
+    "text_es": "Viviana... Gracias, infinitas gracias por tu excelente trabajo con mi hija y conmigo. Súper agradecida no solamente por tu profesionalismo sino también por tu calidez, dulzura y trato.",
+    "text_en": "What can I tell you, Viviana... Thank you, infinite thanks for your excellent work with my daughter and me. Super grateful not only for your professionalism but also for your warmth, sweetness and treatment.",
     "date": "2024-06"
   },
   {
     "name": "Florencia M.",
     "stars": 5,
-    "text": "Gracias Vivi por excelente trabajo! Un gusto conocerte! Llegué pasadas las 7 de la mañana después de haber bailado toda la noche con mi maquillaje impecable.",
+    "text_es": "Gracias Vivi por excelente trabajo! Un gusto conocerte! Llegué pasadas las 7 de la mañana después de haber bailado toda la noche con mi maquillaje impecable.",
+    "text_en": "Thanks Vivi for excellent work! Nice to meet you! I arrived past 7 in the morning after dancing all night with my makeup impeccable.",
     "date": "2019-10"
   }
 ]
