@@ -267,6 +267,16 @@
             font-weight: 300;
         }
 
+        input:disabled,
+        select:disabled,
+        textarea:disabled {
+            opacity: 0.15 !important;
+            cursor: not-allowed !important;
+            filter: grayscale(1);
+            border-bottom-style: dotted !important;
+            pointer-events: none;
+        }
+
         input::placeholder,
         textarea::placeholder {
             color: rgba(0, 0, 0, 0.3);
@@ -785,22 +795,10 @@
             </div>
 
             <div class="relative reveal order-1 md:order-2">
-                <!-- Main Carousel -->
-                <div class="about-img img-carousel h-[350px] md:h-[650px] rounded-sm" data-carousel>
-                    <div class="carousel-slides h-full">
-                        <img src="img/IMG_0530.webp" alt="Viviana Rojas Méndez - Makeup Artist"
-                            class="w-full h-full object-cover object-top" loading="lazy">
-                        <img src="img/IMG_0531.webp" alt="Viviana Rojas Méndez - Estilista profesional"
-                            class="w-full h-full object-cover object-top" loading="lazy">
-                        <img src="img/IMG_0532.webp" alt="Viviana Rojas Méndez trabajando"
-                            class="w-full h-full object-cover object-top" loading="lazy">
-                        <img src="img/IMG_0533.webp" alt="Viviana Rojas Méndez - Beauty Expert"
-                            class="w-full h-full object-cover object-top" loading="lazy">
-                        <img src="img/IMG_0534.webp" alt="Viviana Rojas Méndez - Maquilladora"
-                            class="w-full h-full object-cover object-top" loading="lazy">
-                    </div>
-                    <button class="carousel-arrow prev" aria-label="Anterior">&#8249;</button>
-                    <button class="carousel-arrow next" aria-label="Siguiente">&#8250;</button>
+                <!-- Main Image -->
+                <div class="about-img h-[350px] md:h-[650px] rounded-sm">
+                    <img src="img/IMG_0534.webp" alt="Viviana Rojas Méndez - Maquilladora"
+                        class="w-full h-full object-cover object-top" loading="lazy">
                 </div>
                 <!-- Creative offset border -->
                 <div class="absolute top-10 -right-6 w-full h-full border border-black/10 -z-10 hidden md:block"></div>
@@ -887,7 +885,7 @@
     </section>
 
     <section id="services" class="py-32 px-6 bg-white">
-        <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Card 1 - Maquillaje (single image) -->
             <div class="reveal relative group overflow-hidden h-[500px] md:h-[600px] cursor-none">
                 <img src="img/Card_Maquillaje.webp" alt="Maquillaje profesional"
@@ -929,15 +927,56 @@
                         data-i18n="serv-vis-3">Back</p>
                 </div>
             </div>
+            <!-- Card 4 - Automaquillaje (single image) -->
+            <div class="reveal relative group overflow-hidden h-[500px] md:h-[600px] cursor-none">
+                <img src="img/WhatsApp Image 2026-03-04 at 11.27.55.jpeg" alt="Clase de automaquillaje"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                <div class="absolute bottom-8 left-8 text-white">
+                    <p class="text-xs uppercase tracking-[0.3em] font-bold border-l-2 border-white pl-4 mb-2"
+                        data-i18n="serv-vis-4">Automaquillaje</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- PLANES -->
     <section id="planes" class="py-32 bg-off-white text-left">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Plan 0: Automaquillaje -->
+            <div
+                class="p-8 lg:p-10 border border-black/5 bg-white shadow-xl hover:shadow-2xl transition-shadow reveal flex flex-col justify-between group">
+                <div>
+                    <h3 class="serif text-3xl mb-4 group-hover:text-accent-clay transition-colors"
+                        data-i18n="serv-0-title">Clases de automaquillaje</h3>
+                    <p class="text-[9px] uppercase tracking-[0.4em] opacity-40 mb-6" data-i18n="serv-0-tag">
+                        Aprende a maquillarte</p>
+                    <p class="text-xs font-light tracking-wide text-gray-600 mb-6 leading-relaxed"
+                        data-i18n="serv-0-desc">
+                        En esta clase, te enseño paso a paso a maquillarte como una profesional, aprenderás todas las
+                        técnicas para sacarle el mayor provecho a tus productos. Aprenderemos un maquillaje perfecto
+                        para el día y cómo adaptarlo para uno de noche.
+                    </p>
+                    <ul class="space-y-4 text-xs font-light tracking-wide text-gray-600 mb-12 leading-relaxed">
+                        <li data-i18n="serv-0-l1" class="flex gap-3"><span class="text-accent-clay">―</span>
+                            Individual o grupal</li>
+                        <li data-i18n="serv-0-l2" class="flex gap-3"><span class="text-accent-clay">―</span>
+                            Clase teórica y práctica</li>
+                        <li data-i18n="serv-0-l3" class="flex gap-3"><span class="text-accent-clay">―</span>
+                            Incluye materiales</li>
+                        <li data-i18n="serv-0-l4" class="flex gap-3"><span class="text-accent-clay">―</span>
+                            Presencial</li>
+                    </ul>
+                </div>
+                <a href="#contact" onclick="prefillPlan('Clases de automaquillaje')"
+                    title="Consultar disponibilidad para Clases de automaquillaje"
+                    class="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-black/20 pb-1 self-start hover:border-black transition-all"
+                    data-i18n="serv-consultar">Consultar Disponibilidad</a>
+            </div>
+
             <!-- Plan 1: Maquillaje o Peinado -->
             <div
-                class="p-12 border border-black/5 bg-white shadow-xl hover:shadow-2xl transition-shadow reveal flex flex-col justify-between group">
+                class="p-8 lg:p-10 border border-black/5 bg-white shadow-xl hover:shadow-2xl transition-shadow reveal flex flex-col justify-between group">
                 <div>
                     <h3 class="serif text-3xl mb-4 group-hover:text-accent-clay transition-colors"
                         data-i18n="serv-1-title">Maquillaje o Peinado</h3>
@@ -960,7 +999,7 @@
 
             <!-- Plan 2: Maquillaje y Peinado -->
             <div
-                class="p-12 border border-black/5 bg-white shadow-xl hover:shadow-2xl transition-shadow reveal flex flex-col justify-between group">
+                class="p-8 lg:p-10 border border-black/5 bg-white shadow-xl hover:shadow-2xl transition-shadow reveal flex flex-col justify-between group">
                 <div>
                     <h3 class="serif text-3xl mb-4 group-hover:text-accent-clay transition-colors"
                         data-i18n="serv-2-title">Maquillaje y Peinado</h3>
@@ -985,7 +1024,7 @@
 
             <!-- Plan 3: Maquillaje y Peinado con Prueba (Destacado) -->
             <div
-                class="p-12 bg-[#1e1e1e] text-white reveal shadow-2xl relative flex flex-col justify-between overflow-hidden group">
+                class="p-8 lg:p-10 bg-[#1e1e1e] text-white reveal shadow-2xl relative flex flex-col justify-between overflow-hidden group">
                 <!-- Decorative Circle -->
                 <div class="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full blur-3xl"></div>
 
@@ -1112,6 +1151,7 @@
                             Prueba (Recomendado)</option>
                         <option value="Maquillaje o Peinado" data-i18n="opt-plan1">Maquillaje o Peinado</option>
                         <option value="Maquillaje y Peinado" data-i18n="opt-plan2">Maquillaje y Peinado</option>
+                        <option value="Clases de automaquillaje" data-i18n="opt-plan4">Clases de automaquillaje</option>
                     </select>
                 </div>
 
@@ -1239,13 +1279,14 @@
                 "stat-exp": "Años Exp.", "stat-tv": "Specialist", "stat-fashion": "Editorial", "stat-bridal": "Novias", "stat-xv": "Quinceañeras",
                 "brands-tag": "Marcas de Confianza",
                 "journal-tag": "Portfolio", "journal-title": "Journal.", "proj-1-title": "Novias", "proj-1-tag": "Bridal", "proj-2-title": "Quinceañeras", "proj-2-tag": "XV", "proj-3-title": "Moda", "proj-3-tag": "Fashion Editorial",
-                "serv-vis-1": "Maquillaje", "serv-vis-2": "Peinado", "serv-vis-3": "Back",
+                "serv-vis-1": "Maquillaje", "serv-vis-2": "Peinado", "serv-vis-3": "Back", "serv-vis-4": "Automaquillaje",
                 "serv-1-title": "Maquillaje o Peinado", "serv-1-tag": "Servicio Individual", "serv-1-l1": "Maquillaje o Peinado profesional", "serv-1-l2": "Asesoría de estilo personalizada", "serv-1-l3": "Productos de alta gama",
                 "serv-2-title": "Maquillaje y Peinado", "serv-2-tag": "Servicio Completo", "serv-2-l1": "Maquillaje profesional", "serv-2-l2": "Peinado profesional para tu evento", "serv-2-l3": "Skincare Premium", "serv-2-l4": "Asesoría de estilo personalizada",
+                "serv-0-title": "Clases de automaquillaje", "serv-0-tag": "Aprende a maquillarte", "serv-0-desc": "En esta clase, te enseño paso a paso a maquillarte como una profesional, aprenderás todas las técnicas para sacarle el mayor provecho a tus productos. Aprenderemos un maquillaje perfecto para el día y cómo adaptarlo para uno de noche.", "serv-0-l1": "Individual o grupal", "serv-0-l2": "Clase teórica y práctica", "serv-0-l3": "Incluye materiales", "serv-0-l4": "Presencial",
                 "serv-recommended": "Recomendado", "serv-3-title": "Maquillaje y Peinado con Prueba", "serv-3-tag": "The Full Experience", "serv-3-l1": "Maquillaje profesional", "serv-3-l2": "Peinado profesional para tu evento", "serv-3-l3": "Skincare Premium", "serv-3-l4": "Asesoría de estilo personalizada", "serv-3-l5": "Prueba previa de maquillaje y peinado",
                 "serv-consultar": "Consultar Disponibilidad", "serv-reserva": "Solicitar Reserva",
                 "book-title": "Booking.", "book-tag": "Completa todos los campos obligatorios (*)", "form-name": "Nombre Completo *", "form-email": "Email *", "form-plan": "Servicio *", "form-event": "Evento *", "form-wa": "WhatsApp *", "form-msg": "Tu Visión / Notas *", "form-btn": "Enviar Solicitud Directa",
-                "opt-sel-plan": "Selecciona un servicio", "opt-plan1": "Maquillaje o Peinado", "opt-plan2": "Maquillaje y Peinado", "opt-plan3": "Maquillaje y Peinado con Prueba (Recomendado)",
+                "opt-sel-plan": "Selecciona un servicio", "opt-plan1": "Maquillaje o Peinado", "opt-plan2": "Maquillaje y Peinado", "opt-plan3": "Maquillaje y Peinado con Prueba (Recomendado)", "opt-plan4": "Clases de automaquillaje",
                 "opt-sel-event": "Selecciona tipo de evento", "opt-novia": "Novia / Bridal", "opt-xv": "Quinceañera", "opt-social": "Social / Fiesta", "opt-media": "Media / TV / Producción",
                 "ph-msg": "Cuéntame sobre tu evento...", "err-msg": "Faltan campos obligatorios o el email es inválido (*)", "status-gen": "Enviando...", "status-wa": "Redirigiendo...",
                 "success-title": "¡Solicitud Enviada!", "success-desc": "Viviana ha recibido tu correo. Si prefieres acelerar la respuesta, puedes contactarla por WhatsApp ahora.", "back-btn": "Realizar otra consulta",
@@ -1270,13 +1311,14 @@
                 "stat-exp": "Years Exp.", "stat-tv": "Specialist", "stat-fashion": "Editorial", "stat-bridal": "Bridal", "stat-xv": "Quinceañeras",
                 "brands-tag": "Trusted Brands",
                 "journal-tag": "Portfolio", "journal-title": "Journal.", "proj-1-title": "Brides", "proj-1-tag": "Bridal", "proj-2-title": "Quinceañeras", "proj-2-tag": "XV", "proj-3-title": "Fashion", "proj-3-tag": "Fashion Editorial",
-                "serv-vis-1": "Makeup", "serv-vis-2": "Hair", "serv-vis-3": "Back",
+                "serv-vis-1": "Makeup", "serv-vis-2": "Hair", "serv-vis-3": "Back", "serv-vis-4": "Self-Makeup",
                 "serv-1-title": "Makeup or Hair", "serv-1-tag": "Single Service", "serv-1-l1": "Professional Makeup or Hair", "serv-1-l2": "Personalized style consultation", "serv-1-l3": "Premium products",
                 "serv-2-title": "Makeup & Hair", "serv-2-tag": "Full Service", "serv-2-l1": "Professional Makeup", "serv-2-l2": "Professional Event Hairstyling", "serv-2-l3": "Premium Skincare", "serv-2-l4": "Personalized style consultation",
+                "serv-0-title": "Self-Makeup Classes", "serv-0-tag": "Learn to makeup", "serv-0-desc": "In this class, I teach you step-by-step how to do your makeup like a professional, and you'll learn all the techniques to get the most out of your products. We'll learn a perfect day makeup look and how to adapt it for the night.", "serv-0-l1": "Individual or group", "serv-0-l2": "Theoretical and practical class", "serv-0-l3": "Materials included", "serv-0-l4": "In-person",
                 "serv-recommended": "Recommended", "serv-3-title": "Makeup & Hair with Trial", "serv-3-tag": "The Full Experience", "serv-3-l1": "Professional Makeup", "serv-3-l2": "Professional Event Hairstyling", "serv-3-l3": "Premium Skincare", "serv-3-l4": "Personalized style consultation", "serv-3-l5": "Pre-event makeup & hair trial session",
                 "serv-consultar": "Check Availability", "serv-reserva": "Request Booking",
                 "book-title": "Booking.", "book-tag": "Please complete all required fields (*)", "form-name": "Full Name *", "form-email": "Email *", "form-plan": "Service *", "form-event": "Event *", "form-wa": "WhatsApp *", "form-msg": "Your Vision / Notes *", "form-btn": "Send Direct Request",
-                "opt-sel-plan": "Select a service", "opt-plan1": "Makeup or Hair", "opt-plan2": "Makeup & Hair", "opt-plan3": "Makeup & Hair with Trial (Recommended)",
+                "opt-sel-plan": "Select a service", "opt-plan1": "Makeup or Hair", "opt-plan2": "Makeup & Hair", "opt-plan3": "Makeup & Hair with Trial (Recommended)", "opt-plan4": "Self-Makeup Classes",
                 "opt-sel-event": "Select event type", "opt-novia": "Bridal", "opt-xv": "Quinceañera", "opt-social": "Social / Party", "opt-media": "Media / TV / Production",
                 "ph-msg": "Tell me about your project...", "err-msg": "Missing fields or invalid email format (*)", "status-gen": "Sending...", "status-wa": "Redirecting...",
                 "success-title": "Request Sent!", "success-desc": "Viviana has received your email. If you prefer a faster response, you can contact her via WhatsApp now.", "back-btn": "Make another inquiry",
@@ -1321,10 +1363,24 @@
             for (let i = 0; i < planSelect.options.length; i++) {
                 if (planSelect.options[i].value === planValue) {
                     planSelect.selectedIndex = i;
+                    planSelect.dispatchEvent(new Event('change'));
                     break;
                 }
             }
         }
+
+        // Disable Event select when "Clases de automaquillaje" is selected
+        document.getElementById('plan').addEventListener('change', function (e) {
+            const eventSelect = document.getElementById('event');
+            if (e.target.value === 'Clases de automaquillaje') {
+                eventSelect.disabled = true;
+                eventSelect.removeAttribute('required');
+                eventSelect.value = '';
+            } else {
+                eventSelect.disabled = false;
+                eventSelect.setAttribute('required', 'required');
+            }
+        });
 
         // Manejar envío del formulario via Formspree (AJAX)
         const contactForm = document.getElementById('contactForm');
