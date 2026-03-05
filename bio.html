@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/img/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/img/favicon-512.png">
+
+    <!-- SEO BÁSICO -->
+    <title>Viviana Rojas Méndez | Bio</title>
+    <meta name="description"
+        content="Biografía y trayectoria de Viviana Rojas Méndez, maquilladora y estilista profesional en Buenos Aires.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://vivianarojasmendez.com/bio.html">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'off-white': '#FAFAFA',
+                        'editorial-black': '#111111',
+                        'accent-clay': '#B45309',
+                        'soft-gray': '#F3F4F6'
+                    },
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                        sans: ['"Manrope"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-body: #FAFAFA;
+            --text-main: #111111;
+            --accent-color: #B45309;
+            --font-display: 'Playfair Display', serif;
+            --font-serif: 'Instrument Serif', serif;
+            --font-sans: 'Manrope', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: var(--font-serif);
+        }
+
+        .display {
+            font-family: var(--font-display);
+        }
+
+        .sans {
+            font-family: var(--font-sans);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav links styles */
+        .lang-link {
+            cursor: pointer;
+            font-size: 11px;
+            opacity: 0.4;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .lang-link.active {
+            opacity: 1;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 1.5px;
+            background: var(--text-main);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(4.5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-4.5px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            background: rgba(250, 250, 250, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-style: italic;
+            color: var(--text-main);
+            transition: color 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease, color 0.3s;
+        }
+
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav
+        class="fixed top-0 left-0 w-full z-[100] px-6 md:px-12 py-6 flex justify-between items-center transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-black/5">
+        <a href="index.html"
+            class="serif text-2xl md:text-3xl tracking-tight font-medium hover:text-accent-clay transition-colors cursor-pointer">Viviana
+            Rojas Méndez</a>
+
+        <div
+            class="hidden md:flex items-center space-x-12 text-[11px] uppercase tracking-[0.2em] font-semibold text-editorial-black/80">
+            <a href="index.html#about" class="hover:text-accent-clay transition-colors" data-i18n="nav-about">Sobre
+                Mí</a>
+            <a href="bio.html" class="hover:text-accent-clay transition-colors" data-i18n="nav-bio">Bio</a>
+            <a href="index.html#portfolio" class="hover:text-accent-clay transition-colors"
+                data-i18n="nav-portfolio">Galería</a>
+            <a href="index.html#planes" class="hover:text-accent-clay transition-colors"
+                data-i18n="nav-services">Servicios</a>
+            <a href="index.html#contact" class="hover:text-accent-clay transition-colors"
+                data-i18n="nav-contact">Reservar</a>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <div class="flex gap-4 text-xs font-medium">
+                <span id="lang-es" class="lang-link active" onclick="setLanguage('es')">ES</span>
+                <span class="text-gray-300">|</span>
+                <span id="lang-en" class="lang-link" onclick="setLanguage('en')">EN</span>
+            </div>
+            <!-- Hamburger (mobile only) -->
+            <div class="hamburger md:hidden" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <!-- Close Button -->
+        <button onclick="closeMobileMenu()" class="absolute top-6 right-6 md:hidden z-50 p-2" aria-label="Cerrar menú">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8 text-text-main">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="index.html#about" onclick="closeMobileMenu()" data-i18n="nav-about">Sobre Mí</a>
+        <a href="bio.html" onclick="closeMobileMenu()" data-i18n="nav-bio">Bio</a>
+        <a href="index.html#portfolio" onclick="closeMobileMenu()" data-i18n="nav-portfolio">Galería</a>
+        <a href="index.html#planes" onclick="closeMobileMenu()" data-i18n="nav-services">Servicios</a>
+        <a href="index.html#contact" onclick="closeMobileMenu()" data-i18n="nav-contact">Reservar</a>
+    </div>
+
+    <!-- BIO SECTION -->
+    <section class="relative pt-40 pb-32 px-6 md:px-16 bg-white overflow-hidden min-h-screen">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal relative z-10 mb-16 text-center">
+                <h1 class="display text-5xl md:text-7xl font-bold mb-6 tracking-tighter text-editorial-black"
+                    data-i18n="bio-title">Mi Historia.</h1>
+                <div class="w-20 h-px bg-accent-clay mx-auto"></div>
+            </div>
+
+            <div class="reveal space-y-6 text-lg leading-relaxed text-gray-700 font-light text-justify md:text-left">
+                <p data-i18n="bio-p1">Desde muy chica supe que el arte iba a ser parte de mi vida. Me encantaba pintar,
+                    crear con mis manos, peinar y maquillar a mis abuelas. Siempre fui curiosa, detallista y
+                    observadora... y sin darme cuenta, ahí empezó todo.</p>
+
+                <p data-i18n="bio-p2">A los 18 años tuve mi primer acercamiento al maquillaje artístico, y a los 22
+                    decidí formarme profesionalmente como maquilladora en Uruguay. Tiempo después, a los 24 años, crucé
+                    el charco para trabajar en Inglot Cosmetics, una experiencia que me permitió crecer muchísimo
+                    mientras también me formaba en peinado.</p>
+
+                <p data-i18n="bio-p3">Soy Viviana Rojas Méndez, maquilladora y estilista con más de una década de
+                    experiencia. He trabajado en moda, pasarelas y en la televisión argentina (Telefe Noticias, LAM,
+                    Canta Conmigo). Especializada en novias y quinceañeras, ofrezco un acompañamiento integral y
+                    asesoría personalizada para resaltar tu esencia en tus momentos más irrepetibles.</p>
+
+                <p data-i18n="bio-p4">En 2017 comencé mi camino como freelance, creando mi propio espacio dentro de la
+                    belleza. Desde entonces, acompaño a cada mujer en momentos especiales, entendiendo que el maquillaje
+                    y el peinado no son solo imagen: son confianza, emoción y una forma de expresar quién sos.</p>
+
+                <p class="font-medium text-editorial-black text-2xl italic mt-12 text-center" data-i18n="bio-p5">Mi
+                    compromiso es que te sientas vos misma, cómoda, segura y radiante.</p>
+            </div>
+
+            <div class="mt-20 text-center reveal">
+                <a href="index.html"
+                    class="text-sm tracking-widest uppercase font-bold text-accent-clay hover:opacity-70 transition-opacity"
+                    data-i18n="bio-back">← Volver al inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-24 border-t border-black/5 px-8 bg-off-white text-center">
+        <div class="serif text-3xl italic mb-10">Viviana Rojas Méndez</div>
+
+        <div
+            class="flex flex-col md:flex-row justify-center gap-12 text-[10px] uppercase tracking-widest font-bold mb-12 text-gray-500">
+            <div class="flex flex-col gap-2">
+                <span class="opacity-30">Email</span>
+                <a href="mailto:vivianarojasmendez@gmail.com" title="Enviar email a Viviana Rojas Méndez"
+                    class="hover:text-black transition-colors">vivianarojasmendez@gmail.com</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="opacity-30">WhatsApp</span>
+                <a href="https://wa.me/541160182590" target="_blank" rel="noopener noreferrer"
+                    title="Contactar por WhatsApp" class="hover:text-black transition-colors">+54 9 11 6018 2590</a>
+            </div>
+        </div>
+
+        <div class="flex justify-center gap-12 mb-12">
+            <a href="https://instagram.com/vivianarojasmendez" target="_blank" rel="noopener noreferrer"
+                title="Seguir a Viviana en Instagram"
+                class="text-[10px] font-bold tracking-[0.2em] hover:text-accent-clay transition-colors uppercase">Instagram</a>
+            <a href="https://linkedin.com/in/viviana-rojas-mendez-455862140" target="_blank" rel="noopener noreferrer"
+                title="Perfil de LinkedIn de Viviana Rojas Méndez"
+                class="text-[10px] font-bold tracking-[0.2em] hover:text-accent-clay transition-colors uppercase">LinkedIn</a>
+        </div>
+
+        <p class="text-[9px] opacity-30 uppercase tracking-[0.4em] font-bold" data-i18n="footer-copy">&copy; 2026
+            Viviana Rojas Méndez. Palermo, Buenos Aires.</p>
+    </footer>
+
+    <!-- FLOAT WA -->
+    <a href="https://wa.me/541160182590" class="wa-float" target="_blank" rel="noopener noreferrer"
+        title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-7 h-7">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Traducciones específicas para bio.html nav y content
+        const translations = {
+            es: {
+                "nav-about": "Sobre Mí", "nav-bio": "Bio", "nav-portfolio": "Galería", "nav-services": "Servicios", "nav-contact": "Reservar",
+                "footer-copy": "© 2026 Viviana Rojas Méndez. Palermo, Buenos Aires.",
+                "bio-title": "Mi Historia.",
+                "bio-p1": "Desde muy chica supe que el arte iba a ser parte de mi vida. Me encantaba pintar, crear con mis manos, peinar y maquillar a mis abuelas. Siempre fui curiosa, detallista y observadora... y sin darme cuenta, ahí empezó todo.",
+                "bio-p2": "A los 18 años tuve mi primer acercamiento al maquillaje artístico, y a los 22 decidí formarme profesionalmente como maquilladora en Uruguay. Tiempo después, a los 24 años, crucé el charco para trabajar en Inglot Cosmetics, una experiencia que me permitió crecer muchísimo mientras también me formaba en peinado.",
+                "bio-p3": "Soy Viviana Rojas Méndez, maquilladora y estilista con más de una década de experiencia. He trabajado en moda, pasarelas y en la televisión argentina (Telefe Noticias, LAM, Canta Conmigo). Especializada en novias y quinceañeras, ofrezco un acompañamiento integral y asesoría personalizada para resaltar tu esencia en tus momentos más irrepetibles.",
+                "bio-p4": "En 2017 comencé mi camino como freelance, creando mi propio espacio dentro de la belleza. Desde entonces, acompaño a cada mujer en momentos especiales, entendiendo que el maquillaje y el peinado no son solo imagen: son confianza, emoción y una forma de expresar quién sos.",
+                "bio-p5": "Mi compromiso es que te sientas vos misma, cómoda, segura y radiante.",
+                "bio-back": "← Volver al inicio"
+            },
+            en: {
+                "nav-about": "About", "nav-bio": "Bio", "nav-portfolio": "Journal", "nav-services": "Services", "nav-contact": "Booking",
+                "footer-copy": "© 2026 Viviana Rojas Méndez. Palermo, Buenos Aires.",
+                "bio-title": "My Story.",
+                "bio-p1": "Since I was very young, I knew art would be part of my life. I loved painting, creating with my hands, and doing my grandmothers' hair and makeup. I was always curious, detail-oriented, and observant... and without realizing it, that's where it all began.",
+                "bio-p2": "At 18, I had my first approach to artistic makeup, and at 22, I decided to train professionally as a makeup artist in Uruguay. Later, at 24, I crossed the pond to work at Inglot Cosmetics, an experience that allowed me to grow immensely while also training in hairstyling.",
+                "bio-p3": "I am Viviana Rojas Méndez, a makeup artist and stylist with over a decade of experience. I have worked in fashion, runways, and on Argentine television (Telefe Noticias, LAM, Canta Conmigo). Specializing in brides and quinceañeras, I offer comprehensive guidance and personalized advice to highlight your essence in your most unrepeatable moments.",
+                "bio-p4": "In 2017, I started my journey as a freelance artist, creating my own space within the beauty industry. Since then, I have accompanied every woman in special moments, understanding that makeup and hair are not just about image: they are confidence, emotion, and a way to express who you are.",
+                "bio-p5": "My commitment is to make you feel like yourself—comfortable, confident, and radiant.",
+                "bio-back": "← Back to home"
+            }
+        };
+
+        let currentLang = 'es';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const text = translations[lang][el.getAttribute('data-i18n')];
+                if (text) {
+                    el.innerText = text;
+                }
+            });
+            document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+        }
+
+        // Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('hamburgerBtn');
+            menu.classList.toggle('active');
+            btn.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('hamburgerBtn');
+            menu.classList.remove('active');
+            btn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Set initial language if available in localStorage or URL, otherwise defaults to ES
+        // Doing simple initialization
+        setLanguage('es');
+    </script>
+</body>
+
+</html>
